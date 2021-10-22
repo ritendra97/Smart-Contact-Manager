@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title> This is SignUp page </title>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="my-card mt-2">
+						<h1 class="text-center"> Register Here</h1>
+						<form action="" th:action="@{/do_register}" method="POST" th:object="${user}">
+
+                            <!--Name Field-->
+							<div class="form-group">
+								<label for="name_field" class="form-label"> Name </label>
+								<input name = "name" type="text" class="form-control" id="name_field"
+									aria-describedby="emailHelp" placeholder="Please Enter" required
+									th:value="${user.name}" />
+							</div>
+
+
+                            <!--Email Field-->
+							<div class="form-group">
+								<label for="email_field" class="form-label"> Email </label>
+								<input name = "email" type="email" class="form-control" id="email_field"
+									aria-describedby="emailHelp" placeholder="Please Enter" required
+									th:value="${user.email}" />
+							</div>
+
+
+                            <!--Password Field-->
+							<div class="form-group">
+								<label for="password_field" class="form-label"> Password </label>
+								<input name ="password" type="password" class="form-control" id="password_field"
+									aria-describedby="emailHelp" placeholder="Please Enter" required />
+							</div>
+
+
+							<!--About Area-->
+							<div class="form-group mt-3">
+								<textarea name="about" th:value="${user.about}"
+									placeholder="Enter Something About Yourself" rows="10"
+									class="form-control"></textarea>
+							</div>
+
+							<!--Terms and condition-->
+							<div class="form-group form-check ">
+								<input type="checkbox" name="agreement" class="form-check-input" id="agreement" />
+								<level for="agreement"> Accept terms and condition</level>
+							</div>
+
+
+							<div class="container text-center">
+								<button type="submit" class="btn bg-primary btn-block text-white mt-3"> Submit </button>
+								<button type="reset" class="btn bg-warning btn-block text-white mt-3"> Reset </button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
